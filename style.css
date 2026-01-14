@@ -1,0 +1,375 @@
+/* ============================================================
+   1. BASES & VARIABLES
+   Initialisation des polices et des réglages globaux
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #595A4A;
+    background-color: #595A4A;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================================
+   2. HEADER & NAVIGATION
+   Fixé en haut avec un effet de flou (Glassmorphism)
+   ============================================================ */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    padding: 20px 0;
+    border-bottom: 1px solid #e5e5e7;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.nav-links a {
+    color: #595A4A;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: opacity 0.3s;
+}
+
+/* ============================================================
+   3. SECTION HERO
+   Mise en place du dégradé et de la perspective pour les effets 3D
+   ============================================================ */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #727CCB 40%, #9472CB 70%, #C172CB 100%);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Ajout de perspective pour que l'effet 'slide-fwd-center' fonctionne */
+    perspective: 1000px;
+}
+
+.hero h1 {
+    font-family: "Goblin One", serif;
+    font-size: 4rem;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    text-shadow: -3px -3px 0 #7AE4FF, -3px 3px 0 #FF5AF7, -5px 5px 0 #FFF176;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    color: #B0FE76;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-weight: 400;
+}
+
+/* Style spécifique du bouton "Mes projets" */
+.cta-button {
+    display: inline-block;
+    background-color: #1c1c1e;
+    color: #ffffff;
+    padding: 14px 32px;
+    border-radius: 980px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+/* ============================================================
+   4. SECTION ABOUT (À propos)
+   ============================================================ */
+.about {
+    background: linear-gradient(to bottom, #C172CB, #E8B0E5);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 60px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.about-content {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    color: #ffffff;
+}
+
+.about-image { flex: 1; }
+
+.about-image img {
+    width: 70%;
+    max-width: 300px;
+    border-radius: 20px;
+}
+
+.about-text { flex: 1; }
+
+.about-text h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+/* ============================================================
+   5. SECTION SKILLS (Compétences)
+   Utilisation de Grid pour un alignement parfait des cartes
+   ============================================================ */
+.skills {
+    background: linear-gradient(to bottom, #E8B0E5, #C172CB);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 0;
+}
+
+/* Le conteneur qui force l'alignement côte à côte */
+.skills-grid {
+    display: flex; /* Utilisation de Flexbox au lieu de Grid pour plus de contrôle */
+    flex-direction: row; 
+    gap: 30px;
+    width: 100%;
+    align-items: stretch; /* Force toutes les cartes à avoir la même hauteur */
+}
+
+.skill-card {
+    background: white;
+    padding: 40px 25px;
+    border-radius: 20px;
+    text-align: center;
+    color: #1d1d1f;
+    
+    /* Changement clé : chaque carte occupe exactement 1/3 de l'espace */
+    flex: 1; 
+    
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.skill-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    height: 60px; /* Espace fixe pour l'icône */
+}
+
+/* Harmonisation du titre */
+.skill-card h3 {
+    font-size: 1.4rem; /* Taille de police identique */
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #1c1c1e;
+    min-height: 3.5rem; /* Réserve l'espace pour 2 lignes maximum */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Harmonisation de la description */
+.skill-card p {
+    color: #6f6f74;
+    font-size: 1rem; /* Taille de police identique */
+    line-height: 1.5;
+    margin: 0;
+    flex-grow: 1; /* Pousse le contenu pour remplir la carte */
+}
+
+/* REGLAGE RESPONSIVE : Sur mobile, on les rempile pour la lisibilité */
+@media (max-width: 992px) {
+    .skills-grid {
+        flex-direction: column;
+    }
+    .skill-card {
+        width: 100%;
+    }
+}
+/* ============================================================
+   6. SECTION PROJECTS
+   ============================================================ */
+.projects {
+    background: linear-gradient(to bottom, #C172CB, #727CCB);
+    min-height: 100vh;
+    padding: 120px 0;
+}
+
+.projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.project-card {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 20px;
+    color: #1d1d1f;
+}
+
+.project-card:nth-child(2) { flex-direction: row-reverse; }
+
+.project-image {
+    width: 40%;
+    min-height: 300px;
+    background: #8FBB99;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.project-link {
+    display: inline-block;
+    color: #595A4A;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ============================================================
+   7. SECTION CONTACT
+   Effet spécifique pour le bouton d'envoi
+   ============================================================ */
+.contact {
+    background: linear-gradient(180deg, #727CCB, #9472CB, #0b0b0b);
+    padding: 120px 0;
+    color: #ffffff;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+
+.form-group input, .form-group textarea {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #d2d2d7;
+}
+
+/* Style du bouton Envoyer avec l'effet hover demandé (Blanc + Agrandissement) */
+.submit-button {
+    background-color: #8FBB99;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.submit-button:hover {
+    background-color: #ffffff;
+    color: #1c1c1e;
+    transform: scale(1.08); /* Agrandissement au survol */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* ============================================================
+   8. FOOTER
+   ============================================================ */
+footer {
+    background: #0b0b0b;
+    padding: 60px 0;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.social-links { display: flex; gap: 20px; justify-content: center; }
+
+/* ============================================================
+   9. EFFETS HOVER & ANIMATIONS (Classes partagées)
+   On regroupe ici les classes que tu appliques via ton HTML
+   ============================================================ */
+
+/* Classe de Zoom 3D partagée */
+.slide-fwd-center {
+    display: inline-block;
+    transition: transform 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940), 
+                box-shadow 0.45s ease;
+    transform-style: preserve-3d;
+}
+
+.slide-fwd-center:hover {
+    transform: translateZ(50px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Animation de flou sur le texte du Hero */
+.text-blur-out {
+    animation: text-blur-out 6s cubic-bezier(0.550, 0.085, 0.680, 0.530) 2s infinite both;
+}
+
+@keyframes text-blur-out {
+    0% { filter: blur(0.01); opacity: 1; }
+    100% { filter: blur(12px); opacity: 0; }
+}
+
+/* ============================================================
+   10. MEDIA QUERIES (Responsive)
+   Adaptation pour mobiles et tablettes
+   ============================================================ */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .nav-links { display: none; } /* On pourrait ajouter un menu burger ici */
+    .about-content, .project-card { flex-direction: column; text-align: center; }
+    .project-image { width: 100%; }
+}
