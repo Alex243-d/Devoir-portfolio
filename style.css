@@ -200,7 +200,7 @@ nav {
     font-size: 1.4rem; /* Taille de police identique */
     font-weight: 700;
     margin-bottom: 15px;
-    color: #1c1c1e;
+    color: #000000;
     min-height: 3.5rem; /* Réserve l'espace pour 2 lignes maximum */
     display: flex;
     align-items: center;
