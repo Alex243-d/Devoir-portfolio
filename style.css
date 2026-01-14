@@ -1,14 +1,6 @@
 /* ============================================================
    1. BASES & VARIABLES
-   Initialisation des polices et des réglages globaux
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-
-
 * {
     margin: 0;
     padding: 0;
@@ -16,9 +8,10 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    color: #595A4A;
-    background-color: #595A4A;
+    /* Utilisation de la nouvelle police Open Sans pour tout le texte */
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff; /* Texte en blanc pour être lisible sur les fonds colorés */
+    background-color: #0b0b0b;
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -31,15 +24,14 @@ body {
 
 /* ============================================================
    2. HEADER & NAVIGATION
-   Fixé en haut avec un effet de flou (Glassmorphism)
    ============================================================ */
 header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(20px);
-    padding: 20px 0;
+    padding: 15px 0;
     border-bottom: 1px solid #e5e5e7;
 }
 
@@ -51,7 +43,8 @@ nav {
 
 .logo {
     font-size: 1.8rem;
-    font-weight: 600;
+    font-weight: 700;
+    color: #1d1d1f;
     letter-spacing: -0.5px;
 }
 
@@ -62,35 +55,35 @@ nav {
 }
 
 .nav-links a {
-    color: #595A4A;
+    color: #1d1d1f;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1rem;
-    transition: opacity 0.3s;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #727CCB;
 }
 
 /* ============================================================
    3. SECTION HERO
-   Mise en place du dégradé et de la perspective pour les effets 3D
    ============================================================ */
 .hero {
     min-height: 100vh;
     background: linear-gradient(180deg, #727CCB 40%, #9472CB 70%, #C172CB 100%);
-    color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* Ajout de perspective pour que l'effet 'slide-fwd-center' fonctionne */
     perspective: 1000px;
 }
 
 .hero h1 {
     font-family: "Goblin One", serif;
-    font-size: 4rem;
+    font-size: clamp(2rem, 8vw, 4rem); /* Responsive font size */
     margin-bottom: 24px;
-    letter-spacing: -1px;
     line-height: 1.1;
     text-shadow: -3px -3px 0 #7AE4FF, -3px 3px 0 #FF5AF7, -5px 5px 0 #FFF176;
 }
@@ -100,10 +93,8 @@ nav {
     color: #B0FE76;
     max-width: 600px;
     margin: 0 auto 40px;
-    font-weight: 400;
 }
 
-/* Style spécifique du bouton "Mes projets" */
 .cta-button {
     display: inline-block;
     background-color: #1c1c1e;
@@ -111,24 +102,22 @@ nav {
     padding: 14px 32px;
     border-radius: 980px;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.05rem;
 }
 
 /* ============================================================
-   4. SECTION ABOUT (À propos)
+   4. SECTION ABOUT
    ============================================================ */
 .about {
     background: linear-gradient(to bottom, #C172CB, #E8B0E5);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
     padding: 100px 0;
 }
 
 .section-title {
+    font-family: 'Open Sans', sans-serif;
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 60px;
     text-align: center;
     color: #ffffff;
@@ -138,44 +127,37 @@ nav {
     display: flex;
     gap: 60px;
     align-items: center;
-    color: #ffffff;
 }
 
-.about-image { flex: 1; }
+.about-image { flex: 1; text-align: center; }
 
 .about-image img {
-    width: 70%;
-    max-width: 300px;
-    border-radius: 20px;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
 .about-text { flex: 1; }
 
 .about-text h2 {
     font-size: 2.4rem;
-    font-weight: 700;
     margin-bottom: 24px;
+    font-weight: 800;
 }
 
 /* ============================================================
-   5. SECTION SKILLS (Compétences)
-   Utilisation de Grid pour un alignement parfait des cartes
+   5. SECTION SKILLS
    ============================================================ */
 .skills {
     background: linear-gradient(to bottom, #E8B0E5, #C172CB);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
     padding: 100px 0;
 }
 
-/* Le conteneur qui force l'alignement côte à côte */
 .skills-grid {
-    display: flex; /* Utilisation de Flexbox au lieu de Grid pour plus de contrôle */
-    flex-direction: row; 
+    display: flex;
     gap: 30px;
-    width: 100%;
-    align-items: stretch; /* Force toutes les cartes à avoir la même hauteur */
+    justify-content: center;
 }
 
 .skill-card {
@@ -184,65 +166,38 @@ nav {
     border-radius: 20px;
     text-align: center;
     color: #1d1d1f;
-    
-    /* Changement clé : chaque carte occupe exactement 1/3 de l'espace */
     flex: 1; 
-    
     display: flex;
     flex-direction: column;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
 }
 
 .skill-icon {
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-bottom: 20px;
-    height: 60px; /* Espace fixe pour l'icône */
 }
 
-/* Harmonisation du titre */
 .skill-card h3 {
-    font-size: 1.4rem; /* Taille de police identique */
     font-weight: 700;
     margin-bottom: 15px;
-    color: #000000;
-    min-height: 3.5rem; /* Réserve l'espace pour 2 lignes maximum */
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-/* Harmonisation de la description */
-.skill-card p {
-    color: #6f6f74;
-    font-size: 1rem; /* Taille de police identique */
-    line-height: 1.5;
-    margin: 0;
-    flex-grow: 1; /* Pousse le contenu pour remplir la carte */
-}
-
-/* REGLAGE RESPONSIVE : Sur mobile, on les rempile pour la lisibilité */
-@media (max-width: 992px) {
-    .skills-grid {
-        flex-direction: column;
-    }
-    .skill-card {
-        width: 100%;
-    }
-}
 /* ============================================================
    6. SECTION PROJECTS
    ============================================================ */
 .projects {
     background: linear-gradient(to bottom, #C172CB, #727CCB);
-    min-height: 100vh;
-    padding: 120px 0;
+    padding: 100px 0;
 }
 
 .projects-grid {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    margin-top: 60px;
 }
 
 .project-card {
@@ -251,38 +206,38 @@ nav {
     align-items: center;
     padding: 40px;
     background: #ffffff;
-    border-radius: 20px;
+    border-radius: 25px;
     color: #1d1d1f;
 }
 
-.project-card:nth-child(2) { flex-direction: row-reverse; }
+.project-card:nth-child(even) { flex-direction: row-reverse; }
 
 .project-image {
-    width: 40%;
-    min-height: 300px;
+    width: 45%;
+    min-height: 250px;
     background: #8FBB99;
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 700;
     color: white;
 }
 
 .project-link {
     display: inline-block;
-    color: #595A4A;
+    margin-top: 15px;
+    color: #727CCB;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 /* ============================================================
    7. SECTION CONTACT
-   Effet spécifique pour le bouton d'envoi
    ============================================================ */
 .contact {
     background: linear-gradient(180deg, #727CCB, #9472CB, #0b0b0b);
-    padding: 120px 0;
-    color: #ffffff;
+    padding: 100px 0;
 }
 
 .contact-form {
@@ -290,25 +245,27 @@ nav {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
 }
 
 .form-group { display: flex; flex-direction: column; gap: 8px; }
 
+.form-group label { font-weight: 600; }
+
 .form-group input, .form-group textarea {
-    padding: 12px 16px;
-    border-radius: 8px;
-    border: 1px solid #d2d2d7;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
 }
 
-/* Style du bouton Envoyer avec l'effet hover demandé (Blanc + Agrandissement) */
 .submit-button {
     background-color: #8FBB99;
     color: white;
-    padding: 14px;
+    padding: 16px;
     border: none;
-    border-radius: 8px;
-    font-weight: 600;
+    border-radius: 10px;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -316,8 +273,7 @@ nav {
 .submit-button:hover {
     background-color: #ffffff;
     color: #1c1c1e;
-    transform: scale(1.08); /* Agrandissement au survol */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transform: scale(1.05);
 }
 
 /* ============================================================
@@ -327,53 +283,48 @@ footer {
     background: #0b0b0b;
     padding: 60px 0;
     text-align: center;
-    border-top: 1px solid #333;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-around;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap: 30px;
     margin-bottom: 40px;
 }
 
-.social-links { display: flex; gap: 20px; justify-content: center; }
+.social-links { font-size: 1.5rem; display: flex; gap: 20px; }
 
 /* ============================================================
-   9. EFFETS HOVER & ANIMATIONS (Classes partagées)
-   On regroupe ici les classes que tu appliques via ton HTML
+   9. ANIMATIONS
    ============================================================ */
-
-/* Classe de Zoom 3D partagée */
 .slide-fwd-center {
     display: inline-block;
-    transition: transform 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940), 
-                box-shadow 0.45s ease;
-    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
 }
 
 .slide-fwd-center:hover {
-    transform: translateZ(50px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    transform: scale(1.1);
 }
 
-/* Animation de flou sur le texte du Hero */
 .text-blur-out {
-    animation: text-blur-out 6s cubic-bezier(0.550, 0.085, 0.680, 0.530) 2s infinite both;
+    animation: text-blur-out 4s ease-in-out infinite alternate;
 }
 
 @keyframes text-blur-out {
-    0% { filter: blur(0.01); opacity: 1; }
-    100% { filter: blur(12px); opacity: 0; }
+    0% { filter: blur(0); opacity: 1; }
+    100% { filter: blur(4px); opacity: 0.7; }
 }
 
 /* ============================================================
-   10. MEDIA QUERIES (Responsive)
-   Adaptation pour mobiles et tablettes
+   10. RESPONSIVE
    ============================================================ */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-    .nav-links { display: none; } /* On pourrait ajouter un menu burger ici */
-    .about-content, .project-card { flex-direction: column; text-align: center; }
+    .nav-links { display: none; }
+    .about-content, .project-card, .skills-grid { 
+        flex-direction: column; 
+        text-align: center; 
+    }
+    .project-card:nth-child(even) { flex-direction: column; }
     .project-image { width: 100%; }
 }
